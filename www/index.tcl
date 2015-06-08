@@ -40,7 +40,14 @@ db_multirow recur_nodes get_recur_nodes {
             childnodes as crn
             on rn.parent_id = crn.tree_node_id
     )
-    select * from childnodes order by parent_id
+    select
+        tree_node_name,
+        tree_node_id,
+        parent_id 
+    from 
+        childnodes 
+   order by 
+        parent_id
 }
 
 ad_form -name new_node -form {
