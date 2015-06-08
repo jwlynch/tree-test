@@ -18,6 +18,31 @@ db_multirow nodes get_nodes {
         n.tree_node_name
 }
 
+db_multirow recur_nodes get_recur_nodes {
+    with recursive childnodes as
+    (
+        select
+            n.tree_node_name,
+            n.tree_node_id,
+            n.parent_id
+        from
+            tree_nodes n
+
+        union all
+
+        select
+            rn.tree_node_name,
+            rn.tree_node_id,
+            rn.parent_id
+        from
+            tree_nodes as rn
+        join
+            childnodes as crn
+            on rn.parent_id = crn.tree_node_id
+    )
+    select * from childnodes order by parent_id
+}
+
 ad_form -name new_node -form {
     tree_node_id:key
     {tree_node_name:text}
