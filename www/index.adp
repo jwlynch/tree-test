@@ -4,6 +4,6 @@
 
 <ul>
   <multiple name="nodes">
-    <li>@nodes.tree_node_name@ with id=@nodes.tree_node_id@ with parent_id=@nodes.parent_id@</li>
+    <li>name |@nodes.tree_node_name@|,id=@nodes.tree_node_id@, parent_id=@nodes.parent_id@</li>
   </multiple>
 </ul>
