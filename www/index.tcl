@@ -12,7 +12,7 @@ db_multirow nodes get_nodes {
         n.tree_node_name,
         n.tree_node_id,
         n.parent_id
-    from 
+    from
         tree_nodes n
     order by
         n.tree_node_name
