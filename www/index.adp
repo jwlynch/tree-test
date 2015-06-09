@@ -18,7 +18,8 @@ recursive:
     <li>
       name |@recur_nodes.tree_node_name@|,
       id=@recur_nodes.tree_node_id@,
-      parent_id=@recur_nodes.parent_id@
+      parent_id=@recur_nodes.parent_id@,
+      r=@recur_nodes.r@
     </li>
   </multiple>
 </ul>

@@ -24,7 +24,8 @@ db_multirow recur_nodes get_recur_nodes {
         select
             n.tree_node_name,
             n.tree_node_id,
-            n.parent_id
+            n.parent_id,
+            'no' as r
         from
             tree_nodes n
 
@@ -33,7 +34,8 @@ db_multirow recur_nodes get_recur_nodes {
         select
             rn.tree_node_name,
             rn.tree_node_id,
-            rn.parent_id
+            rn.parent_id,
+            'yes' as r
         from
             tree_nodes as rn
         join
@@ -43,10 +45,11 @@ db_multirow recur_nodes get_recur_nodes {
     select
         tree_node_name,
         tree_node_id,
-        parent_id 
-    from 
-        childnodes 
-   order by 
+        parent_id,
+        r
+    from
+        childnodes
+   order by
         parent_id
 }
 
