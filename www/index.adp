@@ -24,3 +24,16 @@ recursive:
   </multiple>
 </ul>
 </p>
+
+<p>
+recursive from leaves:
+<ul>
+  <multiple name="recur_from_leaves">
+    <li>
+      name |@recur_from_leaves.tree_node_name@|,
+      id=@recur_from_leaves.tree_node_id@,
+      parent_id=@recur_from_leaves.parent_id@
+    </li>
+  </multiple>
+</ul>
+</p>
