@@ -28,6 +28,8 @@ db_multirow recur_nodes get_recur_nodes {
             'no' as r
         from
             tree_nodes n
+        where
+	    n.parent_id is null
 
         union all
 
