@@ -55,6 +55,33 @@ db_multirow recur_nodes get_recur_nodes {
         parent_id
 }
 
+db_multirow recur_from_leaves get_recur_from_leaves {
+    with recursive from_leaves as (
+        select
+            tn.tree_node_name,
+            tn.tree_node_id,
+            tn.parent_id
+        from
+            tree_nodes tn
+        where
+            not exists
+	    (
+                select
+                    1
+                from
+                    tree_nodes tst_tn
+                where
+                    tst_tn.parent_id = tn.tree_node_id
+            )
+    )
+    select
+        tree_node_name,
+        tree_node_id,
+        parent_id
+    from
+        from_leaves
+}
+
 ad_form -name new_node -form {
     tree_node_id:key
     {tree_node_name:text}
