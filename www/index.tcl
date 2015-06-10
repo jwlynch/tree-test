@@ -42,7 +42,7 @@ db_multirow recur_nodes get_recur_nodes {
             tree_nodes as rn
         join
             childnodes as crn
-            on rn.parent_id = crn.tree_node_id
+            on crn.parent_id = rn.tree_node_id
     )
     select
         tree_node_name,
