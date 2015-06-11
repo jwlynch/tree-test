@@ -114,7 +114,7 @@ db_multirow recur_nodes get_recur_nodes {
 }
 
 db_multirow recur_from_leaves get_recur_from_leaves {
-    with recursive from_leaves as (
+    with recursive parentnodes as (
         select
             tn.tree_node_name,
             tn.tree_node_id,
@@ -137,7 +137,7 @@ db_multirow recur_from_leaves get_recur_from_leaves {
         tree_node_id,
         parent_id
     from
-        from_leaves
+        parentnodes
 }
 
 ad_form -name new_node -form {
