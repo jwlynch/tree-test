@@ -131,6 +131,18 @@ db_multirow recur_from_leaves get_recur_from_leaves {
                 where
                     tst_tn.parent_id = tn.tree_node_id
             )
+
+        union all
+
+        select
+            rn.tree_node_name,
+            rn.tree_node_id,
+            rn.parent_id
+        from
+            tree_nodes as rn
+        join
+            parentnodes as prn
+            on rn.tree_node_id = prn.parent_id
     )
     select
         tree_node_name,
