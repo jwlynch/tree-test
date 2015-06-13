@@ -118,7 +118,8 @@ db_multirow recur_from_leaves get_recur_from_leaves {
         select
             tn.tree_node_name,
             tn.tree_node_id,
-            tn.parent_id
+            tn.parent_id,
+            'no' as r
         from
             tree_nodes tn
         where
@@ -137,7 +138,8 @@ db_multirow recur_from_leaves get_recur_from_leaves {
         select
             rn.tree_node_name,
             rn.tree_node_id,
-            rn.parent_id
+            rn.parent_id,
+            'yes' as r
         from
             tree_nodes as rn
         join
@@ -147,7 +149,8 @@ db_multirow recur_from_leaves get_recur_from_leaves {
     select
         tree_node_name,
         tree_node_id,
-        parent_id
+        parent_id,
+        r
     from
         parentnodes
 }
